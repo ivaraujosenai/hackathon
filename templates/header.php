@@ -17,6 +17,7 @@
                     <a href="/hackathon/index.php" class="text-2xl font-bold text-blue-600 dark:text-blue-400">SysSolicita</a>
                 </div>
                 <div class="flex items-center">
+                    <a href="/hackathon/src/views/solicitante/minhas_solicitacoes.php">Minhas Solicitações</a>
                     <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                         <i id="theme-toggle-icon" class="fas fa-sun"></i>
                     </button>
