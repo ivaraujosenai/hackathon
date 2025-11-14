@@ -94,7 +94,7 @@ if (!$solicitacao) {
 ?>
 
 <div class="max-w-4xl mx-auto">
-    <a href="dashboard.php" class="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block">&larr; Voltar ao Painel</a>
+    <a href="requests.php" class="text-blue-600 dark:text-blue-400 hover:underline mb-6 inline-block">&larr; Voltar ao Painel</a>
 
     <!-- Detalhes da Solicitação -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden mb-8">
@@ -158,7 +158,24 @@ if (!$solicitacao) {
                  <div class="p-4 border-l-4 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 rounded-r-lg">
                     <p class="text-sm text-gray-500 dark:text-gray-400"><?= date('d/m/Y H:i', strtotime($solicitacao['data_abertura'])) ?></p>
                     <p class="font-semibold">Solicitação Criada</p>
+                    <!-- Descrição do problema -->
+
+                    <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Descrição do Problema</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400 whitespace-pre-wrap"><?= htmlspecialchars($solicitacao['descricao']) ?></p>
+                    </div>
+
+                    <!-- Imagem anexada -->
+                    <?php if ($solicitacao['path_imagem']): ?>
+                        <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Imagem Anexada</h3>
+                            <div class="mt-2">
+                                <img src="/hackathon/<?= htmlspecialchars($solicitacao['path_imagem']) ?>" alt="Imagem da solicitação" class="rounded-lg max-w-lg shadow-md">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
+                
             </div>
         </div>
     </div>

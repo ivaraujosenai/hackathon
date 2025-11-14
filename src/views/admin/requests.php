@@ -78,22 +78,7 @@ $conexao->close();
         </div>
     </div>
 
-    <!-- Gráficos -->
-    <!-- <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Solicitações por Status</h3>
-            <canvas id="grafico_status"></canvas>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Solicitações por Prioridade</h3>
-            <canvas id="grafico_prioridade"></canvas>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 lg:col-span-2 xl:col-span-1">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Top Categorias</h3>
-            <canvas id="grafico_categoria"></canvas>
-        </div>
-    </div> -->
-
+    
     <!-- Tabela de Últimas Solicitações -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
         <div class="p-6">

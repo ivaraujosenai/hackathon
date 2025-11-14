@@ -92,83 +92,7 @@ $conexao->close();
             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Top Categorias</h3>
             <canvas id="grafico_categoria"></canvas>
         </div>
-    </div>
-
-    <!-- Tabela de Últimas Solicitações -->
-    <!-- <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-        <div class="p-6">
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Últimas Solicitações</h2>
-        </div>
-        <div class="overflow-x-auto">
-            <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">#ID</th>
-                        <th scope="col" class="px-6 py-3">Abertura</th>
-                        <th scope="col" class="px-6 py-3">Categoria</th>
-                        <th scope="col" class="px-6 py-3">Local</th>
-                        <th scope="col" class="px-6 py-3">Prioridade</th>
-                        <th scope="col" class="px-6 py-3">Status</th>
-                        <th scope="col" class="px-6 py-3">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (empty($solicitacoes)): ?>
-                        <tr>
-                            <td colspan="7" class="px-6 py-4 text-center">Nenhuma solicitação encontrada para seu setor.</td>
-                        </tr>
-                    <?php else: ?>
-                        <?php foreach ($solicitacoes as $solicitacao): ?>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-100">
-                                    <?= htmlspecialchars($solicitacao['id_solicitacao']) ?>
-                                </th>
-                                <td class="px-6 py-4">
-                                    <?= date('d/m/Y H:i', strtotime($solicitacao['data_abertura'])) ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <?= htmlspecialchars($solicitacao['nome_categoria']) ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <?= htmlspecialchars($solicitacao['local_problema']) ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="font-semibold
-                                        <?php 
-                                            switch ($solicitacao['prioridade']) {
-                                                case 'Baixa': echo 'text-green-600 dark:text-green-400'; break;
-                                                case 'Média': echo 'text-yellow-600 dark:text-yellow-400'; break;
-                                                case 'Urgente': echo 'text-red-600 dark:text-red-400'; break;
-                                            }
-                                        ?>
-                                    ">
-                                        <?= htmlspecialchars($solicitacao['prioridade']) ?>
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="px-2 py-1 text-xs font-semibold rounded-full 
-                                        <?php 
-                                            switch ($solicitacao['status']) {
-                                                case 'Aberta': echo 'bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-100'; break;
-                                                case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-100'; break;
-                                                case 'Concluída': echo 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-100'; break;
-                                                case 'Cancelada': echo 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-100'; break;
-                                            }
-                                        ?>
-                                    ">
-                                        <?= htmlspecialchars($solicitacao['status']) ?>
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="visualizar_solicitacao.php?id=<?= $solicitacao['id_solicitacao'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ver</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
-    </div> -->
+    </div>    
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -252,10 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erro na requisição Fetch:', error));
 });
 
-// function recarga() {
-//     location.reload();
-// }
-// setInterval(recarga,10000);
+
 </script>
 
 <?php
