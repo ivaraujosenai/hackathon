@@ -15,7 +15,7 @@ Este é um sistema de gerenciamento de solicitações, onde os usuários podem c
 
 1.  Clone o repositório:
     ```sh
-    git clone https://github.com/seu-usuario/gerenciador-de-solicitacoes.git
+    git clone https://github.com/seu-usuario/hackathon.git
     ```
 2.  Importe o banco de dados `banco_de_dados/gerenciador_solicitacoes.sql` para o seu servidor MySQL.
 3.  Configure a conexão com o banco de dados em `config/database.php`.
