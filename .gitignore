@@ -1,0 +1,21 @@
+# Arquivos de configuração local
+config/local.php
+
+# Arquivos de log
+*.log
+logs/
+
+# Dependências de ferramentas (caso venham a ser usadas)
+vendor/
+node_modules/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de IDEs
+.idea/
+.vscode/
+*.swp
+*~
