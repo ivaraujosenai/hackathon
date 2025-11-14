@@ -18,7 +18,10 @@ $conexao->close();
 ?>
 
 <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Nova Solicitação</h1>
+    <div class="flex justify-between">
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Nova Solicitação</h1>
+        <a class="underline" href="/hackathon/src/views/solicitante/minhas_solicitacoes.php">Minhas Solicitações</a>
+    </div>
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
         <form action="../../controllers/solicitacao_controller.php?action=create" method="POST" enctype="multipart/form-data">
             
