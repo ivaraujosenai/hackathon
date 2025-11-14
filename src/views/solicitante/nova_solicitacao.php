@@ -29,13 +29,13 @@ $conexao->close();
                 <!-- Nome do Solicitante -->
                 <div>
                     <label for="nome_solicitante" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nome Completo</label>
-                    <input type="text" id="nome_solicitante" name="nome_solicitante" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
+                    <input type="text" id="nome_solicitante" name="nome_solicitante" placeholder="Digite seu nome completo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
                 </div>
 
                 <!-- Matrícula -->
                 <div>
                     <label for="matricula_solicitante" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Matrícula</label>
-                    <input type="text" id="matricula_solicitante" name="matricula_solicitante" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
+                    <input type="text" id="matricula_solicitante" name="matricula_solicitante" placeholder="Ex: 123456" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
                 </div>
 
                 <!-- Cargo -->
@@ -52,7 +52,7 @@ $conexao->close();
                 <!-- Local do Problema -->
                 <div>
                     <label for="local_problema" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Local do Problema (Sala, Setor, etc.)</label>
-                    <input type="text" id="local_problema" name="local_problema" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
+                    <input type="text" id="local_problema" name="local_problema" placeholder="Ex: Sala 01, Lab Dev" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
                 </div>
 
                 <!-- Categoria -->
@@ -81,7 +81,7 @@ $conexao->close();
             <!-- Descrição Detalhada -->
             <div class="mt-6">
                 <label for="descricao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Descrição Detalhada da Solicitação</label>
-                <textarea id="descricao" name="descricao" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required></textarea>
+                    <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva detalhadamente o problema: o que ocorre, passos já tentados, mensagens de erro, se há impacto urgente etc." class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required></textarea>
             </div>
 
             <!-- Upload de Imagem -->
