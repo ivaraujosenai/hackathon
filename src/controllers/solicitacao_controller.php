@@ -109,9 +109,9 @@ function handle_create_solicitacao() {
     }
 
     // --- Define o setor responsável com base na categoria ---
-    // Esta é uma regra de negócio que pode ser ajustada
+    // Regra: computador, rede, software, impressora -> TI; o resto -> Manutenção
     $categoria_id = (int)$_POST['categoria_id'];
-    $setor_responsavel_id = determinar_setor_por_categoria($categoria_id);
+    $setor_responsavel_id = determinar_setor_por_categoria($conexao, $categoria_id);
 
     // Prepara a query para evitar SQL Injection
     $query = "INSERT INTO solicitacoes (
@@ -155,20 +155,84 @@ function handle_create_solicitacao() {
     $conexao->close();
 }
 
-function determinar_setor_por_categoria($categoria_id) {
-    // Mapeamento de Categoria ID para Setor ID
-    // 1: TI, 2: Manutenção, 3: Secretaria, 4: Estrutural
-    $mapeamento = [
-        1 => 1, // Computador -> TI
-        2 => 1, // Impressora -> TI
-        3 => 1, // Rede/Internet -> TI
-        4 => 1, // Software -> TI
-        5 => 2, // Elétrica -> Manutenção
-        6 => 2, // Hidráulica -> Manutenção
-        7 => 4, // Mobiliário -> Estrutural
-    ];
+function determinar_setor_por_categoria($conexao, $categoria_id) {
+    // Busca o nome da categoria no banco para aplicar regras baseadas em texto
+    $categoria_id = (int)$categoria_id;
+    $query = "SELECT nome_categoria FROM categorias WHERE id_categoria = ? LIMIT 1";
+    $stmt = $conexao->prepare($query);
+    if ($stmt) {
+        $stmt->bind_param('i', $categoria_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $stmt->close();
+        $nome = strtolower($row['nome_categoria'] ?? '');
+    } else {
+        $nome = '';
+    }
 
-    return $mapeamento[$categoria_id] ?? 3; // Padrão para Secretaria se não mapeado
+    // Palavras-chave que devem ir para TI
+    $keywords_ti = ['computador', 'computadores', 'rede', 'internet', 'software', 'impressora', 'impressoras'];
+    $is_ti = false;
+    foreach ($keywords_ti as $kw) {
+        if (strpos($nome, $kw) !== false) {
+            $is_ti = true;
+            break;
+        }
+    }
+
+    // Padrões de busca para localizar o setor no banco (mais robusto que IDs fixos)
+    $patterns_ti = ['%ti%', '%tecnolog%', '%inform%'];
+    $patterns_manut = ['%manutenc%', '%manutenção%', '%manut%'];
+
+    // Função auxiliar para buscar setor por padrões
+    $buscar_setor_por_padroes = function($conexao, $patterns) {
+        foreach ($patterns as $pat) {
+            $query = "SELECT id_setor FROM setores WHERE LOWER(nome_setor) LIKE ? LIMIT 1";
+            $stmt = $conexao->prepare($query);
+            if (!$stmt) continue;
+            $lower = strtolower($pat);
+            $stmt->bind_param('s', $lower);
+            $stmt->execute();
+            $res = $stmt->get_result();
+            if ($res && $row = $res->fetch_assoc()) {
+                $stmt->close();
+                return (int)$row['id_setor'];
+            }
+            $stmt->close();
+        }
+        return null;
+    };
+
+    if ($is_ti) {
+        // Tenta encontrar setor TI por padrões
+        $id = $buscar_setor_por_padroes($conexao, $patterns_ti);
+        if ($id) return $id;
+    }
+
+    // Se não é TI ou não encontrou setor TI, tenta Manutenção
+    $id = $buscar_setor_por_padroes($conexao, $patterns_manut);
+    if ($id) return $id;
+
+    // Fallbacks: tenta retornar setor padrão por nome exato
+    $fallbacks = $is_ti ? ['ti'] : ['manutenção', 'manutencao', 'manut'];
+    foreach ($fallbacks as $fb) {
+        $q = "SELECT id_setor FROM setores WHERE LOWER(nome_setor) = ? LIMIT 1";
+        $s = $conexao->prepare($q);
+        if (!$s) continue;
+        $lowerfb = strtolower($fb);
+        $s->bind_param('s', $lowerfb);
+        $s->execute();
+        $r = $s->get_result();
+        if ($r && $rw = $r->fetch_assoc()) {
+            $s->close();
+            return (int)$rw['id_setor'];
+        }
+        $s->close();
+    }
+
+    // Último recurso: retornar 1 (TI) se identificado, ou 2 (Manutenção)
+    return $is_ti ? 1 : 2;
 }
 
 ?>

@@ -12,6 +12,36 @@ if (!isset($_SESSION['usuario_admin_id'])) {
 $conexao = conectar_banco();
 $id_setor_admin = $_SESSION['usuario_admin_setor_id'];
 
+// Verifica se o setor do usuário é TI ou Manutenção (por nome)
+$stmt_check = $conexao->prepare("SELECT LOWER(nome_setor) AS nome FROM setores WHERE id_setor = ? LIMIT 1");
+if ($stmt_check) {
+    $stmt_check->bind_param('i', $id_setor_admin);
+    $stmt_check->execute();
+    $res_check = $stmt_check->get_result();
+    $row_check = $res_check->fetch_assoc();
+    $stmt_check->close();
+    $nome_setor_lower = $row_check['nome'] ?? '';
+} else {
+    $nome_setor_lower = '';
+}
+
+$is_allowed = false;
+if ($nome_setor_lower !== '') {
+    if (strpos($nome_setor_lower, 'ti') !== false || strpos($nome_setor_lower, 'tecnolog') !== false || strpos($nome_setor_lower, 'inform') !== false) {
+        $is_allowed = true;
+    }
+    if (strpos($nome_setor_lower, 'manutenc') !== false || strpos($nome_setor_lower, 'manutenção') !== false) {
+        $is_allowed = true;
+    }
+}
+
+if (!$is_allowed) {
+    $conexao->close();
+    echo "<div class='max-w-4xl mx-auto text-center text-red-600 mt-12'>Acesso negado: você não pertence aos setores TI ou Manutenção.</div>";
+    require_once '../../../templates/footer.php';
+    exit;
+}
+
 // Busca as solicitações pertencentes ao setor do admin logado
 $query = "
     SELECT 
