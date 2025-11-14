@@ -33,7 +33,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <a href="/hackathon/index.php" class="text-2xl font-bold text-blue-600 dark:text-blue-400">SysSolicita</a>
+                    <a href="/hackathon/index.php" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        <span class="text-blue-200 dark:text-blue-900">Sys</span><span>Solicita</span>
+                    </a>
                 </div>
                 <div class="flex items-center">                    
                     <button id="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
