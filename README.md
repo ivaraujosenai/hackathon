@@ -27,6 +27,10 @@ Este é um sistema de gerenciamento de solicitações, onde os usuários podem c
 2.  Se você for um solicitante, pode criar uma nova solicitação, acompanhar suas solicitações existentes e ver o histórico de suas solicitações.
 3.  Se você for um administrador, pode visualizar todas as solicitações, alterar seus status e ver os detalhes de cada uma.
 
+## Usuários de teste (admin)
+
+Para facilitar testes locais, o projeto já inclui dois usuários administrativos no banco de dados de exemplo. A senha padrão **é a mesma para os dois**: **`admin123`**. Use os e‑mails registrados no dump (por exemplo `ti@exemplo.com` e `manutencao@exemplo.com`) com essa senha para acessar a área administrativa.
+
 ## Banco de Dados
 
 O arquivo de criação do banco de dados está localizado em `banco_de_dados/gerenciador_solicitacoes.sql`. O modelo do banco de dados está em `banco_de_dados/modelagem/gerenciador_solicitacoes.mwb`.
