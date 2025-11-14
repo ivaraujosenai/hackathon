@@ -1,1 +1,123 @@
-/* Estilos personalizados podem ser adicionados aqui */
+/* Estilos de tema (claro / escuro) usando variáveis CSS
+   O JS já alterna a classe `dark` em <html>.
+*/
+
+:root {
+	--bg: #f3f4f6; /* gray-100 */
+	--text: #111827; /* gray-900 */
+	--muted: #6b7280; /* gray-500 */
+	--primary: #2563eb; /* blue-600 */
+	--card-bg: #ffffff;
+	--border: #e5e7eb;
+	--shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.dark {
+	--bg: #0f172a; /* gray-900 */
+	--text: #f8fafc; /* gray-100 */
+	--muted: #9ca3af; /* gray-400 */
+	--primary: #60a5fa; /* blue-400 */
+	--card-bg: #0b1220;
+	--border: #1f2937;
+	--shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+html, body {
+	background-color: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	transition: background-color .2s ease, color .2s ease;
+}
+
+/* Links */
+a {
+	color: var(--primary);
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Nav / Footer overrides (complementam classes Tailwind usadas nos templates) */
+nav, footer {
+	background: var(--card-bg);
+	color: var(--text);
+	border-color: var(--border);
+}
+
+/* Cartões / painéis */
+.card {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	color: var(--text);
+	box-shadow: var(--shadow);
+	border-radius: .5rem;
+	padding: 1rem;
+}
+
+/* Formulários */
+input, textarea, select {
+	background: var(--card-bg);
+	color: var(--text);
+	border: 1px solid var(--border);
+}
+
+/* Botões primários (suporte se houver classes customizadas) */
+.btn-primary {
+	background: var(--primary);
+	color: #ffffff;
+}
+
+/* Texto secundário */
+.muted {
+	color: var(--muted);
+}
+
+/* Pequenos helpers */
+.transition-theme { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+
+/* Se preferir que o sistema escolha automaticamente quando não houver classe, use esta regra:
+   (comentada porque o JS já seta a classe `dark` explicitamente)
+@media (prefers-color-scheme: dark) {
+	:root:not(.light):not(.dark) {
+		--bg: #0f172a;
+		--text: #f8fafc;
+		--muted: #9ca3af;
+		--card-bg: #0b1220;
+		--border: #1f2937;
+	}
+}
+*/
+
+/* Espaçamento e pequenas melhorias para compatibilidade */
+main.container { padding-top: 1rem; padding-bottom: 1rem; }
+
+/* Fim de estilos personalizados */
+
+/* Overrides para utilitários Tailwind usados no projeto
+	Mapeiam classes como `bg-white`, `text-gray-900`, etc. para as variáveis de tema
+	Usamos `!important` para garantir que esses valores se sobreponham às classes geradas pelo CDN do Tailwind.
+*/
+
+/* Backgrounds */
+.bg-white { background-color: var(--card-bg) !important; }
+.bg-gray-50 { background-color: var(--card-bg) !important; }
+.bg-gray-100 { background-color: var(--bg) !important; }
+.bg-gray-700 { background-color: var(--card-bg) !important; }
+.bg-gray-800 { background-color: var(--card-bg) !important; }
+
+/* Text colors */
+.text-gray-900, .text-gray-800, .text-white { color: var(--text) !important; }
+.text-gray-700, .text-gray-600, .text-gray-500, .text-gray-400 { color: var(--muted) !important; }
+
+/* Borders */
+.border-gray-200, .border-gray-300 { border-color: var(--border) !important; }
+.dark\:border-gray-600 { border-color: var(--border) !important; }
+
+/* Badge/helper colors (text on colored backgrounds) */
+.text-blue-800, .text-yellow-800, .text-green-800, .text-red-800 { color: inherit !important; }
+
+/* Ensure placeholder readability in dark mode */
+::placeholder { color: inherit; opacity: .7; }
+

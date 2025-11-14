@@ -35,7 +35,7 @@ $conexao->close();
 <div class="max-w-7xl mx-auto">
     <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
         <div>
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Painel de Controle</h1>
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Painel de Controle</h1>
             <p class="text-gray-600 dark:text-gray-300">Bem-vindo, <?= htmlspecialchars($_SESSION['usuario_admin_nome']) ?>!</p>
         </div>
         <div class="flex items-center gap-4">
@@ -49,15 +49,15 @@ $conexao->close();
     <!-- Gráficos -->
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Solicitações por Status</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Solicitações por Status</h3>
             <canvas id="grafico_status"></canvas>
         </div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Solicitações por Prioridade</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Solicitações por Prioridade</h3>
             <canvas id="grafico_prioridade"></canvas>
         </div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 lg:col-span-2 xl:col-span-1">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Top Categorias</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Top Categorias</h3>
             <canvas id="grafico_categoria"></canvas>
         </div>
     </div>
@@ -65,7 +65,7 @@ $conexao->close();
     <!-- Tabela de Últimas Solicitações -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
         <div class="p-6">
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Últimas Solicitações</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Últimas Solicitações</h2>
         </div>
         <div class="overflow-x-auto">
             <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -88,7 +88,7 @@ $conexao->close();
                     <?php else: ?>
                         <?php foreach ($solicitacoes as $solicitacao): ?>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-100">
                                     <?= htmlspecialchars($solicitacao['id_solicitacao']) ?>
                                 </th>
                                 <td class="px-6 py-4">
@@ -117,10 +117,10 @@ $conexao->close();
                                     <span class="px-2 py-1 text-xs font-semibold rounded-full 
                                         <?php 
                                             switch ($solicitacao['status']) {
-                                                case 'Aberta': echo 'bg-blue-200 text-blue-800'; break;
-                                                case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800'; break;
-                                                case 'Concluída': echo 'bg-green-200 text-green-800'; break;
-                                                case 'Cancelada': echo 'bg-red-200 text-red-800'; break;
+                                                case 'Aberta': echo 'bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-100'; break;
+                                                case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-100'; break;
+                                                case 'Concluída': echo 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-100'; break;
+                                                case 'Cancelada': echo 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-100'; break;
                                             }
                                         ?>
                                     ">

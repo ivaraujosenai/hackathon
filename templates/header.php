@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Solicitações</title>
+    <script>
+        tailwind = window.tailwind || {};
+        tailwind.config = { darkMode: 'class' };
+    </script>
+    <script>
+        (function(){
+            try {
+                const saved = localStorage.getItem('color-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (saved === 'dark' || (saved === null && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {
+                // ignore
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/hackathon/public/css/estilos.css">
@@ -17,7 +36,7 @@
                     <a href="/hackathon/index.php" class="text-2xl font-bold text-blue-600 dark:text-blue-400">SysSolicita</a>
                 </div>
                 <div class="flex items-center">                    
-                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <button id="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                         <i id="theme-toggle-icon" class="fas fa-sun"></i>
                     </button>
                 </div>

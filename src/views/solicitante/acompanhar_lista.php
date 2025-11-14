@@ -34,7 +34,7 @@ $conexao->close();
 <div class="max-w-5xl mx-auto">
     <div class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Minhas Solicitações</h1>
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">Minhas Solicitações</h1>
             <p class="text-gray-600 dark:text-gray-300">Exibindo solicitações para a matrícula: <strong><?= htmlspecialchars($matricula) ?></strong></p>
         </div>
         <a href="minhas_solicitacoes.php" class="text-blue-600 dark:text-blue-400 hover:underline">&larr; Buscar outra matrícula</a>
@@ -61,7 +61,7 @@ $conexao->close();
                     <?php else: ?>
                         <?php foreach ($solicitacoes as $solicitacao): ?>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray-100">
                                     <?= htmlspecialchars($solicitacao['id_solicitacao']) ?>
                                 </th>
                                 <td class="px-6 py-4">
@@ -77,10 +77,10 @@ $conexao->close();
                                     <span class="px-2 py-1 text-xs font-semibold rounded-full 
                                         <?php 
                                             switch ($solicitacao['status']) {
-                                                case 'Aberta': echo 'bg-blue-200 text-blue-800'; break;
-                                                case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800'; break;
-                                                case 'Concluída': echo 'bg-green-200 text-green-800'; break;
-                                                case 'Cancelada': echo 'bg-red-200 text-red-800'; break;
+                                                case 'Aberta': echo 'bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-100'; break;
+                                                case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-100'; break;
+                                                case 'Concluída': echo 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-100'; break;
+                                                case 'Cancelada': echo 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-100'; break;
                                             }
                                         ?>
                                     ">

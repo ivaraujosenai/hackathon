@@ -6,7 +6,7 @@ require_once '../../../templates/header.php';
     <div class="w-full max-w-lg bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
         <div class="text-center mb-8">
             <i class="fas fa-search text-5xl text-blue-500 dark:text-blue-400"></i>
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mt-4">Acompanhar Minhas Solicitações</h1>
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mt-4">Acompanhar Minhas Solicitações</h1>
             <p class="text-gray-600 dark:text-gray-300">Digite sua matrícula para ver o histórico de suas solicitações.</p>
         </div>
 
@@ -18,8 +18,8 @@ require_once '../../../templates/header.php';
 
         <form action="acompanhar_lista.php" method="GET">
             <div class="mb-6">
-                <label for="matricula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sua Matrícula</label>
-                <input type="text" id="matricula" name="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Digite sua matrícula" required>
+                <label for="matricula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Sua Matrícula</label>
+                <input type="text" id="matricula" name="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" placeholder="Digite sua matrícula" required>
             </div>
 
             <div class="mt-8">

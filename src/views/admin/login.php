@@ -6,7 +6,7 @@ require_once '../../../templates/header.php';
     <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
         <div class="text-center mb-8">
             <i class="fas fa-user-shield text-5xl text-red-500 dark:text-red-400"></i>
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mt-4">Acesso Restrito</h1>
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mt-4">Acesso Restrito</h1>
             <p class="text-gray-600 dark:text-gray-300">Painel do Administrador</p>
         </div>
 
@@ -21,14 +21,14 @@ require_once '../../../templates/header.php';
         <form action="../../controllers/auth_controller.php?action=login" method="POST">
             <!-- Email -->
             <div class="mb-6">
-                <label for="email_usuario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                <input type="email" id="email_usuario" name="email_usuario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="seuemail@exemplo.com" required>
+                <label for="email_usuario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Email</label>
+                <input type="email" id="email_usuario" name="email_usuario" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" placeholder="seuemail@exemplo.com" required>
             </div>
 
             <!-- Senha -->
             <div class="mb-6">
-                <label for="senha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
-                <input type="password" id="senha" name="senha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
+                <label for="senha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Senha</label>
+                <input type="password" id="senha" name="senha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100" required>
             </div>
 
             <!-- Botão de Login -->

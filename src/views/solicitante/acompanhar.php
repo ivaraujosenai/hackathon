@@ -63,19 +63,19 @@ $conexao->close();
         </div>
     <?php endif; ?>
 
-    <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Detalhes da Solicitação</h1>
+    <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">Detalhes da Solicitação</h1>
 
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden mb-8">
         <div class="p-6">
             <div class="flex justify-between items-start mb-4">
-                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Solicitação #<?= htmlspecialchars($solicitacao['id_solicitacao']) ?></h2>
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Solicitação #<?= htmlspecialchars($solicitacao['id_solicitacao']) ?></h2>
                 <span class="px-3 py-1 text-sm font-semibold rounded-full 
                     <?php 
                         switch ($solicitacao['status']) {
-                            case 'Aberta': echo 'bg-blue-200 text-blue-800'; break;
-                            case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800'; break;
-                            case 'Concluída': echo 'bg-green-200 text-green-800'; break;
-                            case 'Cancelada': echo 'bg-red-200 text-red-800'; break;
+                            case 'Aberta': echo 'bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-100'; break;
+                            case 'Em Andamento': echo 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-100'; break;
+                            case 'Concluída': echo 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-100'; break;
+                            case 'Cancelada': echo 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-100'; break;
                         }
                     ?>
                 ">
@@ -94,13 +94,13 @@ $conexao->close();
             </div>
 
             <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Descrição do Problema</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Descrição do Problema</h3>
                 <p class="mt-2 text-gray-600 dark:text-gray-400 whitespace-pre-wrap"><?= htmlspecialchars($solicitacao['descricao']) ?></p>
             </div>
 
             <?php if ($solicitacao['path_imagem']): ?>
             <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Imagem Anexada</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Imagem Anexada</h3>
                 <div class="mt-2">
                     <img src="/hackathon/<?= htmlspecialchars($solicitacao['path_imagem']) ?>" alt="Imagem da solicitação" class="rounded-lg max-w-lg shadow-md">
                 </div>
@@ -112,7 +112,7 @@ $conexao->close();
     <!-- Histórico de Movimentações -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
         <div class="p-6">
-            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Histórico de Andamento</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Histórico de Andamento</h2>
             <div class="space-y-4">
                 <?php if (empty($movimentacoes)): ?>
                     <p class="text-gray-500 dark:text-gray-400">Nenhuma atualização de status registrada ainda.</p>
