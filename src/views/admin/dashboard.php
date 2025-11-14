@@ -249,6 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Erro na requisição Fetch:', error));
 });
+
+function recarga() {
+    location.reload();
+}
+setInterval(recarga,5000);
 </script>
 
 <?php
