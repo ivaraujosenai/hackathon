@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/11/2025 às 09:03
+-- Tempo de geração: 14/11/2025 às 20:52
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -86,7 +86,12 @@ CREATE TABLE `movimentacoes` (
 --
 
 INSERT INTO `movimentacoes` (`id_movimentacao`, `solicitacao_id`, `usuario_admin_id`, `data_movimentacao`, `novo_status`, `resposta`) VALUES
-(1, 1, 1, '2025-11-14 02:41:32', 'Concluída', NULL);
+(1, 1, 1, '2025-11-14 02:41:32', 'Concluída', NULL),
+(2, 3, 1, '2025-11-14 16:13:35', 'Concluída', ''),
+(3, 2, 1, '2025-11-14 16:13:44', 'Concluída', ''),
+(4, 5, 2, '2025-11-14 16:15:40', 'Concluída', ''),
+(5, 6, 2, '2025-11-14 16:17:12', 'Aberta', ''),
+(6, 6, 2, '2025-11-14 16:17:21', 'Em Andamento', '');
 
 -- --------------------------------------------------------
 
@@ -106,9 +111,7 @@ CREATE TABLE `setores` (
 
 INSERT INTO `setores` (`id_setor`, `nome_setor`, `email_setor`) VALUES
 (1, 'TI', 'ti@exemplo.com'),
-(2, 'Manutenção', 'manutencao@exemplo.com'),
-(3, 'Secretaria', 'secretaria@exemplo.com'),
-(4, 'Estrutural', 'estrutural@exemplo.com');
+(2, 'Manutenção', 'manutencao@exemplo.com');
 
 -- --------------------------------------------------------
 
@@ -137,7 +140,12 @@ CREATE TABLE `solicitacoes` (
 --
 
 INSERT INTO `solicitacoes` (`id_solicitacao`, `nome_solicitante`, `matricula_solicitante`, `cargo_solicitante`, `email_solicitante`, `local_problema`, `descricao`, `categoria_id`, `prioridade`, `path_imagem`, `data_abertura`, `status`, `setor_responsavel_id`) VALUES
-(1, 'renan', '111111', 'Professor', 'renan.a.santos@ba.estudante.senai.br', 'lab. dev', 'instalar o Xampp em dois computadores.', 4, 'Média', 'public/uploads/6916c01d572ce_download.jpg', '2025-11-14 02:37:33', 'Concluída', 1);
+(1, 'renan', '111111', 'Professor', 'renan.a.santos@ba.estudante.senai.br', 'lab. dev', 'instalar o Xampp em dois computadores.', 4, 'Média', 'public/uploads/6916c01d572ce_download.jpg', '2025-11-14 02:37:33', 'Concluída', 1),
+(2, 'maria', '222222', 'Coordenador', '', 'sala 01', 'Tela não liga.', 1, 'Baixa', NULL, '2025-11-14 16:05:15', 'Concluída', 1),
+(3, 'João', '333333', 'Funcionário', '', 'sala 02', 'Sala sem internet.', 3, 'Urgente', NULL, '2025-11-14 16:06:50', 'Concluída', 1),
+(4, 'renan', '111111', 'Professor', '', 'lab. dev', 'Tomada não funciona.', 5, 'Baixa', NULL, '2025-11-14 16:14:20', 'Aberta', 2),
+(5, 'maria', '222222', 'Coordenador', '', 'sala 01', 'Torneira com pingueira.', 6, 'Média', NULL, '2025-11-14 16:15:21', 'Concluída', 2),
+(6, 'João', '333333', 'Funcionário', '', 'sala 02', 'Mesa quebrada.', 7, 'Baixa', NULL, '2025-11-14 16:16:31', 'Em Andamento', 2);
 
 -- --------------------------------------------------------
 
@@ -227,7 +235,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de tabela `movimentacoes`
 --
 ALTER TABLE `movimentacoes`
-  MODIFY `id_movimentacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_movimentacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `setores`
@@ -239,7 +247,7 @@ ALTER TABLE `setores`
 -- AUTO_INCREMENT de tabela `solicitacoes`
 --
 ALTER TABLE `solicitacoes`
-  MODIFY `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_solicitacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios_admin`
