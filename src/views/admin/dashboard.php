@@ -69,6 +69,8 @@ $conexao->close();
             <p class="text-gray-600 dark:text-gray-300">Bem-vindo, <?= htmlspecialchars($_SESSION['usuario_admin_nome']) ?>!</p>
         </div>
         <div class="flex items-center gap-4">
+            <a href="/hackathon/src/views/admin/dashboard.php" class="text-white font-medium rounded-lg text-sm px-5 py-2.5">Dashboard</a>
+            <a href="/hackathon/src/views/admin/requests.php" class="text-white font-medium rounded-lg text-sm px-5 py-2.5">Solicições</a>
             <a href="../../controllers/relatorio_controller.php?action=export_csv" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5">
                 <i class="fas fa-file-csv mr-2"></i>Exportar para CSV
             </a>
@@ -93,7 +95,7 @@ $conexao->close();
     </div>
 
     <!-- Tabela de Últimas Solicitações -->
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+    <!-- <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
         <div class="p-6">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Últimas Solicitações</h2>
         </div>
@@ -166,7 +168,7 @@ $conexao->close();
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -250,10 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erro na requisição Fetch:', error));
 });
 
-function recarga() {
-    location.reload();
-}
-setInterval(recarga,5000);
+// function recarga() {
+//     location.reload();
+// }
+// setInterval(recarga,10000);
 </script>
 
 <?php
